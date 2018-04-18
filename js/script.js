@@ -1,3 +1,6 @@
+
+
+
 // New Game Button
 
 var newGameBtn = document.getElementById('js-newGameButton');
@@ -138,13 +141,17 @@ function setGamePoints() {
 
 function endGame () {
     if (player.score == 10){
-        alert(playerNameElem.innerHTML + ' ' + 'has won the game!');
+        var result = document.getElementById("winner");
+        result.style.display= "block";
+        winner.innerText = playerNameElem.innerHTML + ' ' + 'has won the game!';
         gameState = 'ended';
         setGameElements();
     } else if (computer.score == 10) {
-        alert ("You lost, I wish You better luck next time!");
+        result.style.display="block";
+        winner.innerText = 'You lost! better luck next time!';
         gameState = 'ended';
         setGameElements();
     }
 }
+
 
