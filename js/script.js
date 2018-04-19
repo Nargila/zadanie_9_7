@@ -43,14 +43,17 @@ function setGameElements() {
         newGameElem.style.display = 'none';
         pickElem.style.display = 'block';
         resultsElem.style.display = 'block';
+        
       break;
     case 'ended':
         newGameBtn.innerText = 'Jeszcze raz';
+        
     case 'notStarted':
     default:
         newGameElem.style.display = 'block';
         pickElem.style.display = 'none';
         resultsElem.style.display = 'none';
+
   }
 }
 setGameElements();
@@ -68,7 +71,8 @@ function newGame() {
     player.score = computer.score = 0;
     gameState = 'started';
      setGameElements();
-    
+     var result = document.getElementById("winner");
+        result.style.display= "none";
 
 	playerNameElem.innerHTML = player.name;
     setGamePoints(); 
@@ -143,15 +147,14 @@ function endGame () {
     if (player.score == 10){
         var result = document.getElementById("winner");
         result.style.display= "block";
-        winner.innerText = playerNameElem.innerHTML + ' ' + 'has won the game!';
+        result.innerText = playerNameElem.innerHTML + ' ' + 'has won the game!';
         gameState = 'ended';
         setGameElements();
     } else if (computer.score == 10) {
         result.style.display="block";
-        winner.innerText = 'You lost! better luck next time!';
+        result.innerText = 'You lost! better luck next time!';
         gameState = 'ended';
         setGameElements();
     }
 }
-
 
